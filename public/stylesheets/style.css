@@ -6,3 +6,8 @@ body {
 a {
   color: #00B7FF;
 }
+
+#upload-sect {
+  max-width:900px;
+	height:100%;
+}

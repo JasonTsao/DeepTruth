@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var config = require('config');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -22,6 +23,27 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+var expressSession = require('express-session');
+var redisStore = require('connect-redis')(expressSession);
+
+var connectRedisOptions = config.redis;
+var sessionOptions = {
+  'name': 'jasontsao',
+  'secret': 'DeepTruth!',
+  'cookie': { 'httpOnly': false }
+};
+sessionOptions.store = new redisStore(connectRedisOptions);
+
+app.use(expressSession(sessionOptions));
+
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
+
+server.listen(config.listen_port);
+console.log('deep truth server started listening on port: ' + config.listen_port);
+
+//module.exports = io;
+
 app.use('/', routes);
 app.use('/users', users);
 
@@ -31,7 +53,6 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
-
 // error handlers
 
 // development error handler
