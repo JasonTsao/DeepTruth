@@ -7,7 +7,7 @@ function getRandomArbitrary(min, max) {
 }
 
 function drawAudioWordCloud(words) {
-  d3.layout.cloud().size([600, 400])
+  d3.layout.cloud().size([500, 300])
       .words(words)
       .rotate(function() { return ~~(Math.random() * 2) * 90; })
       .font("Impact")
@@ -17,10 +17,10 @@ function drawAudioWordCloud(words) {
 
   function draw(words) {
     d3.select("#audio-word-cloud").append("svg")
-        .attr("width", 600)
-        .attr("height", 400)
+        .attr("width", 500)
+        .attr("height", 300)
       .append("g")
-        .attr("transform", "translate(300,200)")
+        .attr("transform", "translate(250,150)")
       .selectAll("text")
         .data(words)
       .enter().append("text")

@@ -1,0 +1,21 @@
+body {
+  background-color:#333333;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.row {
+  padding-top:15px;
+  padding-bottom:15px;
+}
+
+#upload-button img{
+  
+}
+
+input[type="file"] {
+    display: none;
+}

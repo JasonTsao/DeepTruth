@@ -1,16 +1,23 @@
 extends layout
 
 block footer
-  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' integrity='sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7' crossorigin='anonymous')
+  link(rel='stylesheet', href='/stylesheets/uploads.css')
   script(src="https://cdn.socket.io/socket.io-1.3.5.js")
   script(src='https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
   script(src='/javascripts/upload.js')
 
 block content
-  h1= title
-  p Welcome to the #{title}
-
-  div#upload-sect.well.container
-    form(action="/upload", method="post", enctype="multipart/form-data")
-      input#files(type="file" name="video")
-      input#submit(type="submit" value="Upload")
+  div#upload-background
+    div#upload-sect.container
+      div#header-logo
+        img(src='/images/deepTruthLogo.png')
+      div#upload-form
+        form(action="/upload", method="post", enctype="multipart/form-data")
+          div#upload-button.row
+            label.custom-file-upload(for='files')
+              img(src='/images/fileUploadButton.png')
+          input#files(type="file" name="video")
+          div.row
+            span Upload a video to find out the deep truth behind it
+          div.row
+            input#submit(type="submit" value="Upload")

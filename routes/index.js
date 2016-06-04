@@ -80,7 +80,7 @@ router.get('/video/words', function(req, res, next) {
 
   tasks.extractAudio = function(callback) {
     console.log('extracting audio!');
-    var command = ffmpeg(__dirname + '/../public/uploads/' + videoName + '.mov')
+    var command = ffmpeg(__dirname + '/../public/uploads/' + videoName + '.mp4')
                   .audioCodec('pcm_s16le').audioChannels(2)
                   .output(__dirname + '/../public/uploads/' + videoName + '.wav');
     command.run();
@@ -171,7 +171,7 @@ router.post('/upload', uploading.any(), function(req, res, next) {
 
   metaData.filename = metaData.filename;
   // set where the file should actually exists - in this case it is in the "images" directory
-  var target_path = __dirname + '/../public/uploads/' + metaData.filename + '.mov';
+  var target_path = __dirname + '/../public/uploads/' + metaData.filename + '.mp4';
 
   console.log('metaData.filename = ' + metaData.filename);
   // move the file from the temporary location to the intended location
