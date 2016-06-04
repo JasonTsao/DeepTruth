@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -10,4 +10,85 @@ a {
 #upload-sect {
   max-width:900px;
 	height:100%;
+}
+
+#container {
+  margin: auto;
+  width:1200px;
+}
+
+.words-section {
+  width:50%;
+  height:600px;
+  background-color:#333333;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+#word-clouds {
+  max-width:1200px;
+}
+
+#video-section {
+  height:600px;
+  text-align: center;
+  background-image: url('/images/sky.jpg');
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+#analyzing-video{
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  color:#fff;
+  font-size:24px;
+  height:200px
+}
+
+#analyzing-video-img {
+  height:130px;
+}
+
+#analyzing-video-text {
+  height:70px;
+}
+
+#video-words-section {
+  float:right;
+  border-left-style:solid;
+  border-color:#bfbfbf;
+  border-width:1px;
+}
+
+.words-header {
+  height:100px;
+  width:100%;
+  text-align:center;
+}
+
+.word-cloud {
+  height:60%
+}
+
+.words-bottom {
+  height:100px;
+  text-align: center;
+
+}
+
+.words-bottom input {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  border-style:none;
+  background-color:#2294F2;
+  color:#fff;
+  padding:8px;
+}
+
+#audio-words-section {
+  float:left;
 }

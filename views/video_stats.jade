@@ -4,12 +4,32 @@ block footer
   link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' integrity='sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7' crossorigin='anonymous')
   script(src="https://cdn.socket.io/socket.io-1.3.5.js")
   script(src='https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+  script(src='https://d3js.org/d3.v3.min.js' charset='utf-8')
+  script(src='/javascripts/d3.layout.cloud.js' charset='utf-8')
   script(src='/javascripts/video_stats.js')
 
 block content
   h1= title
   p #{title}
 
-  div#video-section(data-video-ID='#{videoID}')
+  div#container
+    div#video-section(data-video-name='#{videoName}')
+      div#analyzing-video
+        div#analyzing-video-img
+          img(src='/images/deepTruthLogo.png')
+        div#analyzing-video-text
+          span Analyzing your video...
 
-  div#audio-words-section
+    div#word-clouds
+      div#video-words-section.words-section
+        div.words-header
+          img(src='/images/keyframeObj.png')
+        div#video-word-cloud.word-cloud
+        div.words-bottom
+          input(type="button" value="Compare Data")
+      div#audio-words-section.words-section
+        div.words-header
+          img(src='/images/audioExtraction.png')
+        div#audio-word-cloud.word-cloud
+        div.words-bottom
+          input(type="button" value="Compare Data")
